@@ -1,0 +1,67 @@
+version: "2"
+
+linters:
+  default: none
+  enable:
+    - errcheck
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - gosec
+    - gocyclo
+    - misspell
+
+  settings:
+    errcheck:
+      check-type-assertions: true
+      check-blank: true
+
+    gocyclo:
+      min-complexity: 15
+
+    govet:
+      settings:
+        printf:
+          funcs:
+            - (github.com/golangci/golangci-lint/pkg/logutils.Log).Infof
+            - (github.com/golangci/golangci-lint/pkg/logutils.Log).Warnf
+            - (github.com/golangci/golangci-lint/pkg/logutils.Log).Errorf
+            - (github.com/golangci/golangci-lint/pkg/logutils.Log).Fatalf
+
+    gosec:
+      excludes:
+        - G104
+
+run:
+  timeout: 5m
+
+  skip-dirs:
+    - vendor
+    - third_party
+    - testdata
+
+  concurrency: 4
+
+output:
+  formats:
+    text:
+      path: stdout
+      color: true
+
+  show-stats: true
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+  new: false
+
+  fix: false
+
+severity:
+  default: error
+  rules:
+    - linters:
+        - errcheck
+      severity: warning
