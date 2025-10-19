@@ -1,11 +1,14 @@
+**LANGUAGE**: Japanese (日本語)
+
 ## Workflow
 
 1. Plan First
-   - Emit `/plan` and wait for “approve plan”. And call `plan tools mcp` built in OpenCode if user says "approve".
+   - Create and tell me your plan and wait for “approve plan” I says. And call `plan tools mcp` built in OpenCode or codex or claude code if user says "approve".
+
 2. Branching
    - From `main`: `feature/<short>` or `fix/<short>` ..etc (Refer `Branch Naming` section).
 3. Tests
-   - Add/update unit tests in `__tests__/` for every non-trivial function.
+   - Add/update unit tests in `go language best practice location` for every non-trivial function.
    - If tests fail, reject your PR (`/abort`).
 4. Quality
    - Run linters/formatters and commit resulting fixes.
@@ -13,20 +16,27 @@
 
 ## (IMPORTANT) Coding Best Practices
 
-- Keep logic in one function unless splitting improves reuse or clarity.
-- Avoid unnecessary destructuring.
-- Prefer early returns; avoid `else` when not needed.
-- Avoid `try/catch` where possible; if needed, keep scope narrow.
-- Avoid `any` type.
-- Use short, descriptive variable names.
-- Prefer Bun APIs when applicable (e.g., `Bun.file()`).
+- Keep logic small and focused; split into multiple functions only if it improves clarity or reusability.
+- Prefer early returns; avoid using `else` when not necessary.
+- Handle errors explicitly; avoid `panic` except in initialization or unrecoverable situations.
+- Limit `defer` usage scope to what is truly needed.
+- Avoid using `any` or empty interfaces (`interface{}`); prefer concrete types or generics.
+- Use short and descriptive variable names (e.g., `ctx`, `r`, `w`, `n`, `i`).
+- Favor the Go standard library first (`os`, `io`, `context`, `net/http`, `encoding/*`, etc.).
+- For file I/O, prefer `os.ReadFile`, `os.WriteFile`, and similar standard APIs.
+- Pass `context.Context` as the first argument when cancellation or timeouts may be required.
+- Use synchronization (`sync.Mutex`, `sync.WaitGroup`, channels) to protect shared state.
+- Add comments for all exported symbols; comments should start with the identifier name.
+- Minimize reflection usage.
+- Wrap errors using `%w` and propagate them properly.
+- Use structured logging where possible (`log/slog` or similar).
 
 ## Commands
 
-- Linter: `bun x eslint . --max-warnings=0`
-- Formatter: `bun x prettier --write .`
-- Build: `bun build`
-- Test: `bun test`
+- **Linter:** `golangci-lint run --issues-exit-code=1`
+- **Formatter:** `gofmt -s -w . && goimports -w .`
+- **Build:** `go build ./...`
+- **Test:** `go test -race -cover ./...`
 
 ## Branch Naming
 
