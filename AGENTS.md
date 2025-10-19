@@ -6,7 +6,7 @@
    - Create and tell me your plan and wait for “approve plan” I says. And call `plan tools mcp` built in OpenCode or codex or claude code if user says "approve".
 
 2. Branching
-   - From `main`: `feature/<short>` or `fix/<short>` ..etc (Refer `Branch Naming` section).
+   - From `develop`: `feature/<short>` or `fix/<short>` ..etc (Refer `Branch Naming` section).
 3. Tests
    - Add/update unit tests in `go language best practice location` for every non-trivial function.
    - If tests fail, reject your PR (`/abort`).
