@@ -1,7 +1,6 @@
 version: "2"
 
 linters:
-  default: none
   enable:
     - errcheck
     - govet
@@ -33,21 +32,20 @@ linters:
       excludes:
         - G104
 
+  exclusions:
+    paths:
+      - vendor
+      - third_party
+      - testdata
+
 run:
-  timeout: 5m
-
-  skip-dirs:
-    - vendor
-    - third_party
-    - testdata
-
   concurrency: 4
 
 output:
   formats:
     text:
       path: stdout
-      color: true
+      colors: true
 
   show-stats: true
 
