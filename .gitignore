@@ -42,3 +42,14 @@ $RECYCLE.BIN/
 
 # ----- direnv -----
 .direnv/
+
+# ----- Go -----
+bin/
+dist/
+coverage.out
+*.test
+*.log
+
+# Binaries built by go build / go install
+tunnet
+/tunnet
