@@ -1,7 +1,10 @@
+**LANGUAGE**: Japanese (日本語)
+
 ## Workflow
 
 1. Plan First
-   - Emit `/plan` and wait for “approve plan”. And call `plan tools mcp` built in OpenCode if user says "approve".
+   - Create and tell me your plan and wait for “approve plan” I says. And call `plan tools mcp` built in OpenCode or codex or claude code if user says "approve".
+
 2. Branching
    - From `main`: `feature/<short>` or `fix/<short>` ..etc (Refer `Branch Naming` section).
 3. Tests
