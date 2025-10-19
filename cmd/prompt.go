@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/HidemaruOwO/tunnet/internal/ui"
+	"github.com/HidemaruOwO/bridge/internal/ui"
 )
 
 func newPromptCmd() *cobra.Command {

@@ -10,11 +10,11 @@ import (
 // NewRootCmd wires the base cobra command used by the CLI.
 func NewRootCmd() *cobra.Command {
 	root := &cobra.Command{
-		Use:   "tunnet",
+		Use:   "bridge",
 		Short: "A minimal Go CLI starter template.",
 		Long: `Tunnet is a lean CLI template that demonstrates how to combine
 Cobra with Fang styling, animated progress, and interactive prompts.` + "\n\n" +
-			"Run subcommands like `tunnet progress` or `tunnet prompt` to explore the building blocks.",
+			"Run subcommands like `bridge progress` or `bridge prompt` to explore the building blocks.",
 		RunE: func(cmd *cobra.Command, _ []string) error {
 			msg := fmt.Sprintf(
 				"%s Your CLI is ready. Add your own commands when you are!",

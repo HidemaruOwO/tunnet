@@ -6,7 +6,7 @@ import (
 
 	"github.com/charmbracelet/fang"
 
-	"github.com/HidemaruOwO/tunnet/cmd"
+	"github.com/HidemaruOwO/bridge/cmd"
 )
 
 var (

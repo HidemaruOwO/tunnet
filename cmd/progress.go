@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/HidemaruOwO/tunnet/internal/task"
+	"github.com/HidemaruOwO/bridge/internal/task"
 )
 
 func newProgressCmd() *cobra.Command {
