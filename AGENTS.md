@@ -5,7 +5,7 @@
 2. Branching
    - From `main`: `feature/<short>` or `fix/<short>` ..etc (Refer `Branch Naming` section).
 3. Tests
-   - Add/update unit tests in `__tests__/` for every non-trivial function.
+   - Add/update unit tests in `tests/` for every non-trivial function.
    - If tests fail, reject your PR (`/abort`).
 4. Quality
    - Run linters/formatters and commit resulting fixes.
